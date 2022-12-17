@@ -22,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '(nn@cboq1(g909w3*af+fw&w%u$go9cgjv-%2j#%%moddj8wt3'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -31,7 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'posts.apps.PostsConfig',
+    'posts.apps.PostsConfig',  # Добавленная запись
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,11 +50,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'yatube.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # Добавлено: Искать шаблоны на уровне проекта
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+
+        # Оставляем True: шаблоны встроенных приложений (например, админки)
+        # нужно искать в директориях приложений
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,10 +65,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+            ]
         },
-    },
+    }
 ]
+
 
 WSGI_APPLICATION = 'yatube.wsgi.application'
 
