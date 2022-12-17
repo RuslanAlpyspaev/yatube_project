@@ -4,7 +4,11 @@ from django.shortcuts import render
 
 def index(request):
     template = 'posts/index.html'
-    return render(request, template)
+    text = 'Это главная страница проекта Yatube'
+    context = {
+        'text': text,
+    }
+    return render(request, template, context)
 
 
 def groups_list(request):
@@ -13,5 +17,10 @@ def groups_list(request):
 
 
 # В урл мы ждем парметр, и нужно его прередать в функцию для использования
-def group_posts(request, slug):
-    return HttpResponse(f'Пост номер {slug}')
+def group_posts(request):
+    template = 'base.html'
+    text = "Здесь будет информация о группах проекта Yatube"
+    context = {
+        'text': text,
+    }
+    return render(request, template, context)
