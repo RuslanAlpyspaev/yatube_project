@@ -1,25 +1,25 @@
 <!DOCTYPE html> <!-- Используется html 5 версии -->
 <html lang="ru"> <!-- Язык сайта - русский -->
-  <header>
+    <header>
+    {% for post in posts %}
       <!-- Использованы классы бустрапа для создания типовой навигации с логотипом -->
       <!-- В дальнейшем тут будет создано полноценное меню -->
-      <nav class="navbar navbar-light" style="background-color: lightskyblue">
-      <div class="container">
-          {%  for post in posts %}
-          {% if post.group %}
-          <a class="navbar-brand" href='{% url 'posts:index' %}'>
-          {% endif %}
-          <p> {{ post.text }}</p>
-               <ul>
+  <!-- класс py-5 создает отступы сверху и снизу блока -->
+      <ul>
         <li>
           Автор: {{ post.author.get_full_name }}
         </li>
         <li>
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
-      </ul>
+      </ul
       <p> {{ post.text }}</p>
-    {% if post.group %}
+      <nav class="navbar navbar-light" style="background-color: lightskyblue">
+      <div class="container">
+          {%  for post in posts %}
+          {% if post.group %}
+          <a class="navbar-brand" href='{% url 'posts:index' %}'>
+          {% endif %}
           <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
           <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
           <span style="color:red">Ya</span>tube
