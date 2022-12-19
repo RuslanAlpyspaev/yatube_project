@@ -5,7 +5,7 @@
   <div class="container py-5">
     <h1>Лев Толстой - зеркало русской революции.</h1>
     <article>
-   {%  for post in posts %}
+    {%  for post in posts %}
   <!-- класс py-5 создает отступы сверху и снизу блока -->
       <ul>
         <li>
@@ -21,4 +21,4 @@
     {% endif %}
     {%  if not foorloop.last %}<hr>{% endif %}
     {% endfor %}
-{% endblock %}
+    {% endblock %}
