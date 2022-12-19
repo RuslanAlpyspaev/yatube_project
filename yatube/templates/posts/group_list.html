@@ -5,6 +5,7 @@
       <!-- В дальнейшем тут будет создано полноценное меню -->
       <nav class="navbar navbar-light" style="background-color: lightskyblue">
       <div class="container">
+          {%  for post in posts %}
           {% if post.group %}
           <a class="navbar-brand" href='{% url 'posts:index' %}'>
           {% endif %}
@@ -16,3 +17,4 @@
       </nav>
   </header>
 </html>
+{% endfor %}
