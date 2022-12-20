@@ -1,12 +1,10 @@
 <!-- templates/ice_cream/index.html -->
 {% extends 'base.html' %}
 {% block content %}
-  <!-- класс py-5 создает отступы сверху и снизу блока -->
   <div class="container py-5">
-    <h1>Лев Толстой - зеркало русской революции.</h1>
-    <article>
+    <h1>Последние обновления на сайте</h1>
     {%  for post in posts %}
-  <!-- класс py-5 создает отступы сверху и снизу блока -->
+        <article>
       <ul>
         <li>
           Автор: {{ post.author.get_full_name }}
@@ -19,6 +17,7 @@
     {% if post.group %}
       <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
     {% endif %}
+        </article>
     {%  if not foorloop.last %}<hr>{% endif %}
     {% endfor %}
     {% endblock %}

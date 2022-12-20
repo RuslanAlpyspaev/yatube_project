@@ -14,23 +14,15 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Подключен файл со стандартными стилями бустрап -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>Последние обновления на сайте</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<header>
     {% include 'includes/header.html' %}
-</header>
 <main>
     {% block content %}
     {{ text }}
     {% endblock %}
 </main>
-<!-- Использованы классы бустрапа: -->
-<!-- border-top: создаёт тонкую линию сверху блока -->
-<!-- text-center: выравнивает текстовые блоки внутри блока по центру -->
-<!-- py-3: контент внутри размещается с отступом сверху и снизу -->
-<footer class="border-top text-center py-3">
     {% include 'includes/footer.html' %}
-</footer>
 </body>
 </html>
