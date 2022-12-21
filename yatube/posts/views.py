@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
 
-COUNT_PAGE: [int] = 10
+COUNT_PAGE: int = 10
 
 
 def index(request):
