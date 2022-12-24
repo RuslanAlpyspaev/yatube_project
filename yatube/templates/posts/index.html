@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}
-Последние обновления на сайте
-{% endblock %}
+<title>{% block title %} {{title}} {% endblock %}</title>
 {% block content %}
   <div class="container">
       <h1>Последние обновления на сайте</h1>
     {% for post in posts %}
+        <article>
       <ul>
         <li>
           Автор: {{ post.author.get_full_name }}
@@ -14,14 +13,13 @@
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
       </ul>
-        <article>
       <p>{{ post.text }}</p>
-        </article>
     {% if post.group %}
       <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
     {% endif %}
     {% if not foorloop.last %}<hr>{% endif %}
     {% endfor %}
+  </article>
   </div>
 {% endblock %}
 
