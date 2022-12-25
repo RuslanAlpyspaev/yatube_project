@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Group
 
@@ -9,6 +10,7 @@ def index(request):
     posts = Post.objects.order_by('-pub_date')[:COUNT_PAGE]
     context = {
         'posts': posts,
+        'title': 'Последние обновления на сайте',
     }
     return render(request, 'posts/index.html', context)
 
@@ -19,5 +21,6 @@ def group_posts(request, slug):
     context = {
         'group': group,
         'posts': posts,
+        'title': title,
     }
     return render(request, 'posts/group_list.html', context)
