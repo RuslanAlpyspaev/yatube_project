@@ -10,7 +10,6 @@ def index(request):
     posts = Post.objects.order_by('-pub_date')[:COUNT_PAGE]
     context = {
         'posts': posts,
-        'title': 'Последние обновления на сайте',
     }
     return render(request, 'posts/index.html', context)
 
